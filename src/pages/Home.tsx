@@ -6,6 +6,7 @@ import CaesarSection from '@/sections/CaesarSection'
 import ShiftSection from '@/sections/ShiftSection'
 import SubstitutionSection from '@/sections/SubstitutionSection'
 import VigenereSection from '@/sections/VigenereSection'
+import StoriesSection from '@/sections/StoriesSection'
 import PrinciplesSection from '@/sections/PrinciplesSection'
 
 const nav = [
@@ -13,6 +14,7 @@ const nav = [
   { href: '#shift', label: '移位密码' },
   { href: '#substitution', label: '单表替换' },
   { href: '#vigenere', label: '维吉尼亚' },
+  { href: '#stories', label: '历史趣闻' },
   { href: '#principles', label: '总结' },
 ]
 
@@ -67,6 +69,7 @@ export default function Home() {
         <ShiftSection />
         <SubstitutionSection />
         <VigenereSection />
+        <StoriesSection />
         <PrinciplesSection />
       </main>
 

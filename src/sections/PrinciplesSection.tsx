@@ -46,7 +46,7 @@ export default function PrinciplesSection() {
   return (
     <Section
       id="principles"
-      index="05 · 总结"
+      index="06 · 总结"
       title="从古典密码学到现代密码学"
       subtitle="「打补丁式」的路线——提出方案、被破解、再打补丁——难以保证安全。现代密码学用三原则取而代之。"
     >
