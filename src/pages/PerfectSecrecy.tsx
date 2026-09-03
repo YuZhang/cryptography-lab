@@ -34,7 +34,7 @@ export default function PerfectSecrecy() {
             to="/"
             className="flex items-center gap-1 font-mono text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-500 dark:text-emerald-400"
           >
-            <ArrowLeft className="h-4 w-4" /> 第一讲 · 古典密码
+            <ArrowLeft className="h-4 w-4" /> 课程目录
           </Link>
           <div className="flex items-center gap-5">
             <div className="hidden gap-5 text-sm text-muted-foreground md:flex">
