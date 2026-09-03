@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
-import { Moon, Sun } from 'lucide-react'
+import { Link } from 'react-router'
+import { ArrowRight, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTheme } from '@/hooks/useTheme'
 import Hero from '@/sections/Hero'
 import CaesarSection from '@/sections/CaesarSection'
 import ShiftSection from '@/sections/ShiftSection'
@@ -19,12 +20,7 @@ const nav = [
 ]
 
 export default function Home() {
-  // 主题偏好持久化：首次读取 localStorage，之后每次切换都写入
-  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark')
-
-  useEffect(() => {
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
-  }, [dark])
+  const { dark, toggle } = useTheme()
 
   return (
     <div
@@ -54,7 +50,7 @@ export default function Home() {
               size="icon"
               variant="outline"
               className="h-8 w-8 border-border"
-              onClick={() => setDark((d) => !d)}
+              onClick={toggle}
               aria-label="切换深浅色主题"
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -65,6 +61,22 @@ export default function Home() {
 
       <main className="mx-auto max-w-6xl px-6">
         <Hero />
+        <Link to="/perfect-secrecy" className="group block">
+          <div className="mb-2 flex items-center justify-between rounded-xl border border-emerald-500/40 bg-emerald-500/5 px-6 py-4 transition-colors hover:bg-emerald-500/10">
+            <div>
+              <div className="text-xs font-medium tracking-widest text-emerald-600 uppercase dark:text-emerald-400">
+                下一讲
+              </div>
+              <div className="mt-1 text-lg font-bold text-foreground">
+                第二讲 · 完美保密交互实验室
+              </div>
+              <div className="mt-0.5 text-sm text-muted-foreground">
+                一次一密、香农定理、|K| ≥ |M| 的代价，还有你来当 Eve 的窃听不可区分实验 →
+              </div>
+            </div>
+            <ArrowRight className="h-6 w-6 shrink-0 text-emerald-600 transition-transform group-hover:translate-x-1 dark:text-emerald-400" />
+          </div>
+        </Link>
         <CaesarSection />
         <ShiftSection />
         <SubstitutionSection />
