@@ -13,7 +13,7 @@ interface Lecture {
   desc: string
   concepts: string[]
   to?: string
-  tone: 'amber' | 'emerald' | 'zinc'
+  tone: 'amber' | 'emerald' | 'sky' | 'zinc'
   status: 'ready' | 'soon'
 }
 
@@ -40,19 +40,20 @@ const lectures: Lecture[] = [
   },
   {
     no: '03',
-    title: '伪随机性与计算安全',
-    subtitle: 'Computational Security & PRG',
-    desc: '放宽「完美」：只要求计算上不可区分。伪随机生成器、流密码，安全的渐近定义与规约证明。',
-    concepts: ['计算安全', '伪随机生成器', '流密码'],
-    tone: 'zinc',
-    status: 'soon',
+    title: '私钥加密与伪随机（上）',
+    subtitle: 'Computational Security & Pseudorandomness',
+    desc: '计算安全的两个放松、可忽略函数可视化、PRG 定义与统计测试区分器、种子空间蛮力演示、流密码构造与规约法证明。',
+    concepts: ['PPT 敌手', '可忽略函数', 'PRG', '规约法'],
+    to: '/computational-security',
+    tone: 'sky',
+    status: 'ready',
   },
   {
     no: '04',
-    title: '私钥加密与分组密码',
-    subtitle: 'Private-Key Encryption & Block Ciphers',
-    desc: 'CPA 安全、伪随机函数与置换、Feistel 网络、DES 与 AES、分组密码工作模式。',
-    concepts: ['CPA 安全', 'PRF/PRP', 'AES', '工作模式'],
+    title: '私钥加密与伪随机（下）',
+    subtitle: 'CPA Security & Pseudorandom Functions',
+    desc: '选择明文攻击（CPA）下的安全、伪随机函数、安全的多消息加密。',
+    concepts: ['CPA 安全', '伪随机函数', '多消息加密'],
     tone: 'zinc',
     status: 'soon',
   },
@@ -61,6 +62,7 @@ const lectures: Lecture[] = [
 const toneStyle = {
   amber: 'text-amber-600 dark:text-amber-400 border-amber-500/40',
   emerald: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/40',
+  sky: 'text-sky-600 dark:text-sky-400 border-sky-500/40',
   zinc: 'text-muted-foreground border-border',
 }
 
