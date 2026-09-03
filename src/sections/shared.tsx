@@ -33,6 +33,32 @@ export function Section({
   )
 }
 
+/** 页内锚点导航：HashRouter 下不能用 href="#id"（会被当成路由），改用滚动 */
+export function NavAnchor({
+  id,
+  label,
+  className,
+  children,
+}: {
+  id: string
+  label?: string
+  className?: string
+  children?: ReactNode
+}) {
+  return (
+    <a
+      href={`#${id}`}
+      onClick={(e) => {
+        e.preventDefault()
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }}
+      className={className}
+    >
+      {children ?? label}
+    </a>
+  )
+}
+
 /** 公式展示块 */
 export function Formula({ children }: { children: ReactNode }) {
   return (

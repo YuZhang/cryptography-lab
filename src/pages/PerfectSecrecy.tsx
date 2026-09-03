@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { ArrowLeft, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/hooks/useTheme'
+import { NavAnchor } from '@/sections/shared'
 import PsHero from '@/sections/ps/PsHero'
 import PsDefinition from '@/sections/ps/PsDefinition'
 import PsOtp from '@/sections/ps/PsOtp'
@@ -38,13 +39,12 @@ export default function PerfectSecrecy() {
           <div className="flex items-center gap-5">
             <div className="hidden gap-5 text-sm text-muted-foreground md:flex">
               {nav.map((n) => (
-                <a
+                <NavAnchor
                   key={n.href}
-                  href={n.href}
+                  id={n.href.slice(1)}
+                  label={n.label}
                   className="transition-colors hover:text-emerald-600 dark:hover:text-emerald-300"
-                >
-                  {n.label}
-                </a>
+                />
               ))}
             </div>
             <Button

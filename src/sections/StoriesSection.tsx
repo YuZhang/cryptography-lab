@@ -1,6 +1,6 @@
 import { ScrollText } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { Section } from './shared'
+import { NavAnchor, Section } from './shared'
 
 interface Story {
   year: string
@@ -92,14 +92,14 @@ export default function StoriesSection() {
                 {s.year}
               </span>
               {s.tag && (
-                <a href={s.tag.href}>
+                <NavAnchor id={s.tag.href.slice(1)}>
                   <Badge
                     variant="outline"
-                    className="border-border text-muted-foreground transition-colors hover:border-amber-500/50 hover:text-amber-600 dark:hover:text-amber-300"
+                    className="cursor-pointer border-border text-muted-foreground transition-colors hover:border-amber-500/50 hover:text-amber-600 dark:hover:text-amber-300"
                   >
                     相关：{s.tag.label}
                   </Badge>
-                </a>
+                </NavAnchor>
               )}
             </div>
             <h3 className="mb-1 flex items-center gap-2 text-base font-semibold text-foreground">

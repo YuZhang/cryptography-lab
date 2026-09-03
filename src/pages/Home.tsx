@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { ArrowRight, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/hooks/useTheme'
+import { NavAnchor } from '@/sections/shared'
 import Hero from '@/sections/Hero'
 import CaesarSection from '@/sections/CaesarSection'
 import ShiftSection from '@/sections/ShiftSection'
@@ -35,17 +36,22 @@ export default function Home() {
             Π = (Gen, Enc, Dec)
           </span>
           <div className="flex items-center gap-5">
-            <div className="hidden gap-5 text-sm text-muted-foreground sm:flex">
+            <div className="hidden gap-5 text-sm text-muted-foreground lg:flex">
               {nav.map((n) => (
-                <a
+                <NavAnchor
                   key={n.href}
-                  href={n.href}
+                  id={n.href.slice(1)}
+                  label={n.label}
                   className="transition-colors hover:text-amber-600 dark:hover:text-amber-300"
-                >
-                  {n.label}
-                </a>
+                />
               ))}
             </div>
+            <Link
+              to="/perfect-secrecy"
+              className="rounded-lg border border-emerald-500/40 bg-emerald-500/5 px-3 py-1.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-500/15 dark:text-emerald-300"
+            >
+              第二讲 · 完美保密 →
+            </Link>
             <Button
               size="icon"
               variant="outline"
