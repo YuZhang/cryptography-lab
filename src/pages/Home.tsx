@@ -13,7 +13,7 @@ interface Lecture {
   desc: string
   concepts: string[]
   to?: string
-  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'zinc'
+  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'zinc'
   status: 'ready' | 'soon'
 }
 
@@ -58,6 +58,16 @@ const lectures: Lecture[] = [
     tone: 'violet',
     status: 'ready',
   },
+  {
+    no: '05',
+    title: '块密码的实践构造',
+    subtitle: 'Block Ciphers: SPN, Feistel, DES & AES',
+    desc: '亲手搭 16 比特玩具 SPN、观察雪崩效应、步进 Feistel 网络、用中间相遇攻击拆穿双重加密，再亲手计算线性/差分分析表——最后看 DES 四十年从国标沦为 25 秒可破。',
+    concepts: ['SPN', 'Feistel 网络', '中间相遇攻击', '差分/线性分析'],
+    to: '/block-ciphers',
+    tone: 'rose',
+    status: 'ready',
+  },
 ]
 
 const toneStyle = {
@@ -65,6 +75,7 @@ const toneStyle = {
   emerald: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/40',
   sky: 'text-sky-600 dark:text-sky-400 border-sky-500/40',
   violet: 'text-violet-600 dark:text-violet-400 border-violet-500/40',
+  rose: 'text-rose-600 dark:text-rose-400 border-rose-500/40',
   zinc: 'text-muted-foreground border-border',
 }
 
