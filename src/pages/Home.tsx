@@ -13,7 +13,7 @@ interface Lecture {
   desc: string
   concepts: string[]
   to?: string
-  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'zinc'
+  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'fuchsia' | 'zinc'
   status: 'ready' | 'soon'
 }
 
@@ -68,6 +68,16 @@ const lectures: Lecture[] = [
     tone: 'rose',
     status: 'ready',
   },
+  {
+    no: '06',
+    title: '伪随机对象的理论构造',
+    subtitle: 'From OWF to Everything: HCP, PRG, PRF, PRP',
+    desc: '从一个最小假设出发逐级证明：求逆实验体会单向函数的指数鸿沟、Goldreich-Levin 核心断言猜测游戏、Blum-Micali 逐比特步进、GGM 二叉树寻路、Luby-Rackoff 区分器游戏，最后点亮 OWF⇔私钥密码学的构造闭环。',
+    concepts: ['OWF', '核心断言', 'GGM 树', 'Luby-Rackoff'],
+    to: '/theoretical-constructions',
+    tone: 'fuchsia',
+    status: 'ready',
+  },
 ]
 
 const toneStyle = {
@@ -76,6 +86,7 @@ const toneStyle = {
   sky: 'text-sky-600 dark:text-sky-400 border-sky-500/40',
   violet: 'text-violet-600 dark:text-violet-400 border-violet-500/40',
   rose: 'text-rose-600 dark:text-rose-400 border-rose-500/40',
+  fuchsia: 'text-fuchsia-600 dark:text-fuchsia-400 border-fuchsia-500/40',
   zinc: 'text-muted-foreground border-border',
 }
 
