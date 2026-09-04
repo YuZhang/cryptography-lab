@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import ClassicalCiphers from './pages/ClassicalCiphers'
 import PerfectSecrecy from './pages/PerfectSecrecy'
 import ComputationalSecurity from './pages/ComputationalSecurity'
+import CpaCca from './pages/CpaCca'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Route path="/classical-ciphers" element={<ClassicalCiphers />} />
       <Route path="/perfect-secrecy" element={<PerfectSecrecy />} />
       <Route path="/computational-security" element={<ComputationalSecurity />} />
+      <Route path="/cpa-cca" element={<CpaCca />} />
     </Routes>
   )
 }

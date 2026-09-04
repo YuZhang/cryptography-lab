@@ -13,7 +13,7 @@ interface Lecture {
   desc: string
   concepts: string[]
   to?: string
-  tone: 'amber' | 'emerald' | 'sky' | 'zinc'
+  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'zinc'
   status: 'ready' | 'soon'
 }
 
@@ -51,11 +51,12 @@ const lectures: Lecture[] = [
   {
     no: '04',
     title: '私钥加密与伪随机（下）',
-    subtitle: 'CPA Security & Pseudorandom Functions',
-    desc: '选择明文攻击（CPA）下的安全、伪随机函数、安全的多消息加密。',
-    concepts: ['CPA 安全', '伪随机函数', '多消息加密'],
-    tone: 'zinc',
-    status: 'soon',
+    subtitle: 'CPA / CCA Security & Modes of Operation',
+    desc: '确定性加密的多重加密死刑、中途岛「淡水计」、PRF 构造 CPA 安全方案、ECB 企鹅像素实验、比特翻转锻造与填充预言机攻击实操。',
+    concepts: ['CPA/CCA', 'PRF/PRP', 'ECB/CBC/CTR', '填充预言机'],
+    to: '/cpa-cca',
+    tone: 'violet',
+    status: 'ready',
   },
 ]
 
@@ -63,6 +64,7 @@ const toneStyle = {
   amber: 'text-amber-600 dark:text-amber-400 border-amber-500/40',
   emerald: 'text-emerald-600 dark:text-emerald-400 border-emerald-500/40',
   sky: 'text-sky-600 dark:text-sky-400 border-sky-500/40',
+  violet: 'text-violet-600 dark:text-violet-400 border-violet-500/40',
   zinc: 'text-muted-foreground border-border',
 }
 
