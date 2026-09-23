@@ -33,8 +33,10 @@ export default function AeDet() {
     setVerdict(null)
   }
 
+  const lengthMismatch = known.length !== CANDIDATES[testIdx].length
+
   const testCandidate = () => {
-    if (!cq1 || !cq2) return
+    if (!cq1 || !cq2 || lengthMismatch) return
     const pred = fixedIvPredict(cq1, textToBytes(known), textToBytes(CANDIDATES[testIdx]))
     setVerdict(pred.every((b, i) => b === cq2[i]))
   }
@@ -119,9 +121,14 @@ export default function AeDet() {
                           {cand}
                         </Button>
                       ))}
-                      <Button variant="outline" className="h-7 border-border text-xs" onClick={testCandidate}>
+                      <Button variant="outline" className="h-7 border-border text-xs" onClick={testCandidate} disabled={lengthMismatch}>
                         计算 c* = m* ⊕ (c_q1 ⊕ m_q1) 并比对
                       </Button>
+                      {lengthMismatch && (
+                        <span className="text-[10px] text-red-600 dark:text-red-400">
+                          m_q1 与候选需等长（当前 {known.length} vs {CANDIDATES[testIdx].length} 字符）
+                        </span>
+                      )}
                     </div>
                     {verdict !== null && (
                       <div className={verdict ? 'text-red-600 dark:text-red-400' : 'text-muted-foreground'}>

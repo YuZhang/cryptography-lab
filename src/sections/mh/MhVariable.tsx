@@ -98,8 +98,9 @@ export default function MhVariable() {
     const q = cbcMacRaw(K, [m], opts)
     const tVisible = q.tag[q.tag.length - 1]
     const lines = [`查询单块消息 (${bl(m)}) → 标签 0x${hex2(tVisible)}`]
-    // 敌手只看到可见标签；追加块 m₂ = m ⊕（他以为的内部状态）
-    const guess = fix === 'ecbc' ? m ^ tVisible : m ^ tVisible // 可见值
+    // 敌手只能看到可见标签；裸版下可见标签即内部链接值 t，追加块取 m₂ = m ⊕ t
+    // 加长度块后整条链从第一步就不同；ECBC 下可见标签是 F_k₂(t)，敌手拿不到 t
+    const guess = m ^ tVisible
     const forged = [m, guess]
     const fv = cbcMacRaw(K, forged, opts)
     const forgedTag = fv.tag[fv.tag.length - 1]

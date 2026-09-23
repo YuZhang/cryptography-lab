@@ -35,6 +35,8 @@ export default function MhForge() {
     setVerdict(wepVrfy(SECRET_K, textToBytes(forgeMsg), forgedTag))
   }
 
+  const isReplay = forgeMsg === queryMsg
+
   return (
     <Section
       id="mh-forge"
@@ -107,14 +109,16 @@ export default function MhForge() {
               <div
                 className={cn(
                   'rounded-lg border p-3 text-sm',
-                  verdict
+                  verdict && !isReplay
                     ? 'border-red-500/30 bg-red-500/5 text-red-700 dark:text-red-300'
                     : 'border-emerald-500/30 bg-emerald-500/5 text-emerald-700 dark:text-emerald-300'
                 )}
               >
-                {verdict
+                {verdict && !isReplay
                   ? '✗ Vrfy = 1，伪造成功——WEP 式 MAC 不安全。新消息从未查询过，标签却有效。'
-                  : '✓ Vrfy = 0，伪造被拦下。'}
+                  : verdict && isReplay
+                    ? '⚠ Vrfy = 1，但这只是重放：m 与查询消息相同，m ∈ Q，Macforge 不算赢。换一条新消息再来。'
+                    : '✓ Vrfy = 0，伪造被拦下。'}
               </div>
             )}
 
