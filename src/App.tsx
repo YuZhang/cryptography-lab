@@ -7,6 +7,7 @@ import CpaCca from './pages/CpaCca'
 import BlockCiphers from './pages/BlockCiphers'
 import TheoreticalConstructions from './pages/TheoreticalConstructions'
 import MacHash from './pages/MacHash'
+import AuthenticatedEncryption from './pages/AuthenticatedEncryption'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <Route path="/block-ciphers" element={<BlockCiphers />} />
       <Route path="/theoretical-constructions" element={<TheoreticalConstructions />} />
       <Route path="/mac-hash" element={<MacHash />} />
+      <Route path="/authenticated-encryption" element={<AuthenticatedEncryption />} />
     </Routes>
   )
 }

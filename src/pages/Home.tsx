@@ -13,7 +13,7 @@ interface Lecture {
   desc: string
   concepts: string[]
   to?: string
-  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'fuchsia' | 'teal' | 'zinc'
+  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'fuchsia' | 'teal' | 'orange' | 'zinc'
   status: 'ready' | 'soon'
 }
 
@@ -88,6 +88,16 @@ const lectures: Lecture[] = [
     tone: 'teal',
     status: 'ready',
   },
+  {
+    no: '08',
+    title: 'CCA 安全与认证加密',
+    subtitle: 'CCA Security & Authenticated Encryption',
+    desc: '加密+认证的三种组合顺序对决：E&A 泄漏、AtE 被一比特翻转预言机击穿、EtA 可证明安全。附 SSH 非原子解密模拟、固定 IV 攻击与 SIV、XTS 磁盘加密台与 KDF 工作台。',
+    concepts: ['EtA 范式', 'AEAD', 'SIV/XTS', 'HKDF/PBKDF'],
+    to: '/authenticated-encryption',
+    tone: 'orange',
+    status: 'ready',
+  },
 ]
 
 const toneStyle = {
@@ -98,6 +108,7 @@ const toneStyle = {
   rose: 'text-rose-600 dark:text-rose-400 border-rose-500/40',
   fuchsia: 'text-fuchsia-600 dark:text-fuchsia-400 border-fuchsia-500/40',
   teal: 'text-teal-600 dark:text-teal-400 border-teal-500/40',
+  orange: 'text-orange-600 dark:text-orange-400 border-orange-500/40',
   zinc: 'text-muted-foreground border-border',
 }
 
