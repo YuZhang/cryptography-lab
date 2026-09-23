@@ -6,6 +6,7 @@ import ComputationalSecurity from './pages/ComputationalSecurity'
 import CpaCca from './pages/CpaCca'
 import BlockCiphers from './pages/BlockCiphers'
 import TheoreticalConstructions from './pages/TheoreticalConstructions'
+import MacHash from './pages/MacHash'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <Route path="/cpa-cca" element={<CpaCca />} />
       <Route path="/block-ciphers" element={<BlockCiphers />} />
       <Route path="/theoretical-constructions" element={<TheoreticalConstructions />} />
+      <Route path="/mac-hash" element={<MacHash />} />
     </Routes>
   )
 }

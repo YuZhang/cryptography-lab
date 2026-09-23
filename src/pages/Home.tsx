@@ -13,7 +13,7 @@ interface Lecture {
   desc: string
   concepts: string[]
   to?: string
-  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'fuchsia' | 'zinc'
+  tone: 'amber' | 'emerald' | 'sky' | 'violet' | 'rose' | 'fuchsia' | 'teal' | 'zinc'
   status: 'ready' | 'soon'
 }
 
@@ -78,6 +78,16 @@ const lectures: Lecture[] = [
     tone: 'fuchsia',
     status: 'ready',
   },
+  {
+    no: '07',
+    title: '消息认证与抗碰撞哈希',
+    subtitle: 'MAC & Collision-Resistant Hash Functions',
+    desc: '亲手伪造 WEP 的 CRC32 标签、拆穿变长 MAC 的三个馊主意、追加攻击裸 CBC-MAC、对前缀密钥哈希发起长度扩展、用生日悖论算碰撞成本，再看信息论 MAC 的 SUF 直线。',
+    concepts: ['Macforge 实验', 'CBC-MAC', '生日悖论', 'HMAC', 'SUF'],
+    to: '/mac-hash',
+    tone: 'teal',
+    status: 'ready',
+  },
 ]
 
 const toneStyle = {
@@ -87,6 +97,7 @@ const toneStyle = {
   violet: 'text-violet-600 dark:text-violet-400 border-violet-500/40',
   rose: 'text-rose-600 dark:text-rose-400 border-rose-500/40',
   fuchsia: 'text-fuchsia-600 dark:text-fuchsia-400 border-fuchsia-500/40',
+  teal: 'text-teal-600 dark:text-teal-400 border-teal-500/40',
   zinc: 'text-muted-foreground border-border',
 }
 

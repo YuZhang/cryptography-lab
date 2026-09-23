@@ -140,6 +140,15 @@ export default function Cs2Modes() {
             <span className="text-foreground"> IV 绝不可预测</span>
             ——SSL/TLS 1.0 用上一个记录的密文块当 IV，正是这个漏洞。
           </p>
+
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            眼尖的读者会发现：上面的玩具 CBC 企鹅仍有隐约的轮廓。这不是实现错误，而是
+            <span className="text-foreground">分组只有 2 比特的必然结果</span>
+            ——在颜色均匀的区域里，链条 cᵢ = F(p ⊕ cᵢ₋₁) 退化为 4 元素置换的确定性迭代，周期 ≤ 4，
+            于是每种颜色呈现各自的周期纹理，区域边界依然可辨。这正是安全定理中生日界 q²/2ⁿ 的直观体现：
+            n = 2 时 2ⁿ = 4，界完全失效；真实 AES 分组 128 比特，均匀区域的链条约 2¹²⁷ 步内不会重复，
+            密文才看起来是纯噪声。ECB 漏的是"等值块"，而小分组 CBC 漏的是"均匀区域的周期纹理"。
+          </p>
         </CardContent>
       </Card>
     </Section>
